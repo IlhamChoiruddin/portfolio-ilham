@@ -21,7 +21,6 @@
                     <li><a href="#skills">Kemampuan</a></li>
                     <li><a href="#certifications">Sertifikasi</a></li>
                     <li><a href="#projects">Proyek</a></li>
-                    <li><a href="#gallery">Bukti</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
                 <button class="mobile-menu-btn">
@@ -83,6 +82,12 @@
                         <h3>Studi Independen Bersertifikat</h3>
                         <p>Data Academy - PT Cendekia Data Andalan</p>
                     </div>
+                    <div class="education-item">
+                        <div class="date">2023 - 2024</div>
+                        <h3>Asisten Dosen</h3>
+                        <p>Mata Kuliah Basis Data</p>
+                        <p><small>Ms. Access, SQL, PostgreSQL, Navicat</small></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,104 +138,144 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sertifikasi & Pelatihan</h2>
+<!-- Certifications Section -->
+<section id="certifications">
+    <div class="container">
+        <div class="section-title">
+            <h2>Sertifikasi & Pelatihan</h2>
+            <p>Klik pada sertifikat untuk melihat detail</p>
+        </div>
+        <div class="cert-grid">
+            <!-- Item 1 -->
+            <div class="cert-item" onclick="openCertificate('cert1')">
+                <div class="cert-img">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">RevoU</span>
+                    <h3>Data Analytics Mini Course</h3>
+                    <p>Menyelesaikan pelatihan intensif selama 2 minggu mengenai dasar-dasar analisis data...</p>
+                    <span class="date">September 2025</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
+                    </div>
+                </div>
             </div>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">RevoU</span>
-                        <h3>Data Analytics Mini Course</h3>
-                        <p>Menyelesaikan pelatihan intensif selama 2 minggu mengenai dasar-dasar analisis data, digital business, dan penerapan teknologi dalam proses pengambilan keputusan.</p>
-                        <span class="date">September 2025</span>
+
+            <!-- Item 2 -->
+            <div class="cert-item" onclick="openCertificate('cert2')">
+                <div class="cert-img">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">BNSP</span>
+                    <h3>Junior Data Analytic</h3>
+                    <p>Sertifikasi kompetensi nasional yang memvalidasi kemampuan dasar dalam pengolahan data...</p>
+                    <span class="date">Januari 2025</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">BNSP</span>
-                        <h3>Junior Data Analytic</h3>
-                        <p>Sertifikasi kompetensi nasional yang memvalidasi kemampuan dasar dalam pengolahan data, analisis statistik sederhana, penggunaan tools analitik, serta interpretasi hasil analisis sesuai standar industri.</p>
-                        <span class="date">Januari 2025</span>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="cert-item" onclick="openCertificate('cert3')">
+                <div class="cert-img">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">PASAS</span>
+                    <h3>International Specialist in Data Visualization (CISDV)</h3>
+                    <p>Tersertifikasi dalam tes perancangan visualisasi data yang efektif...</p>
+                    <span class="date">Februari 2025</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">PASAS</span>
-                        <h3>International Specialist in Data Visualization (CISDV)</h3>
-                        <p>Tersertifikasi dalam tes perancangan visualisasi data yang efektif, mencakup prinsip visual analytics, storytelling data, dan penyajian insight untuk mendukung pengambilan keputusan.</p>
-                        <span class="date">Februari 2025</span>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="cert-item" onclick="openCertificate('cert4')">
+                <div class="cert-img">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">Universitas Negeri Surabaya</span>
+                    <h3>Asisten Dosen Basis Data</h3>
+                    <p>Membantu kegiatan perkuliahan basis data...</p>
+                    <span class="date">Desember 2024</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">Universitas Negeri Surabaya</span>
-                        <h3>Asisten Dosen Basis Data</h3>
-                        <p>Membantu kegiatan perkuliahan basis data, termasuk pendampingan praktikum SQL, penjelasan konsep relasional database, serta asistensi mahasiswa dalam memahami query dan perancangan basis data.</p>
-                        <span class="date">Desember 2024</span>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="cert-item" onclick="openCertificate('cert5')">
+                <div class="cert-img">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">Amazon Web Services (AWS)</span>
+                    <h3>Cloud Essentials Knowledge Badge Assessment</h3>
+                    <p>Memahami konsep dasar komputasi awan...</p>
+                    <span class="date">Mei 2024</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">Amazon Web Services (AWS)</span>
-                        <h3>Cloud Essentials Knowledge Badge Assessment</h3>
-                        <p>Memahami konsep dasar komputasi awan, arsitektur cloud, serta penerapan layanan AWS untuk efisiensi infrastruktur digital.</p>
-                        <span class="date">Mei 2024</span>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="cert-item" onclick="openCertificate('cert6')">
+                <div class="cert-img">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">Alibaba Cloud</span>
+                    <h3>Pelatihan Big Data</h3>
+                    <p>Mengikuti pelatihan mengenai konsep Big Data...</p>
+                    <span class="date">Agustus 2024</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">Alibaba Cloud</span>
-                        <h3>Pelatihan Big Data</h3>
-                        <p>Mengikuti pelatihan mengenai konsep Big Data, mencakup pengenalan ekosistem big data, pemrosesan data skala besar, serta pemanfaatan layanan cloud untuk mendukung analisis dan pengelolaan data secara efisien.</p>
-                        <span class="date">Agustus 2024</span>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="cert-item" onclick="openCertificate('cert7')">
+                <div class="cert-img">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="cert-content">
+                    <span class="provider">Data Academy</span>
+                    <h3>The Best Participant</h3>
+                    <p>Meraih penghargaan sebagai peserta terbaik...</p>
+                    <span class="date">Desember 2024</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">Data Academy</span>
-                        <h3>The Best Participant</h3>
-                        <p>Meraih penghargaan sebagai peserta terbaik berdasarkan kinerja akademik, keaktifan, konsistensi penyelesaian tugas, dan kualitas analisis data selama program berlangsung.</p>
-                        <span class="date">Desember 2024</span>
-                    </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="cert-item" onclick="openCertificate('cert8')">
+                <div class="cert-img">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-img">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="cert-content">
-                        <span class="provider">DQLab</span>
-                        <h3>Online Data Course</h3>
-                        <p>Mengikuti berbagai kursus daring yang membahas Python untuk data analysis, SQL, statistika dasar, dan pengolahan data, disertai latihan dan studi kasus.</p>
-                        <span class="date">Juli 2024</span>
+                <div class="cert-content">
+                    <span class="provider">DQLab</span>
+                    <h3>Online Data Course</h3>
+                    <p>Mengikuti berbagai kursus daring...</p>
+                    <span class="date">Juli 2024</span>
+                    <div class="view-cert">
+                        <i class="fas fa-eye"></i> Lihat Sertifikat
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Projects Section -->
     <section id="projects" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
@@ -286,66 +331,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Evidence Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Bukti Proyek & Sertifikat</h2>
-            </div>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--gray);">Berikut adalah bukti-bukti proyek dan sertifikat yang telah saya dapatkan:</p>
-            
-            <div class="project-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sertifikat Data Analytics">
-                    <div class="gallery-overlay">
-                        <h4>Sertifikat Data Analytics</h4>
-                        <p>RevoU - September 2025</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sertifikat BNSP">
-                    <div class="gallery-overlay">
-                        <h4>Sertifikat BNSP</h4>
-                        <p>Junior Data Analyst - Januari 2025</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dashboard Tableau">
-                    <div class="gallery-overlay">
-                        <h4>Dashboard Tableau</h4>
-                        <p>Proyek Magang - PT Pelindo</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sertifikat CISDV">
-                    <div class="gallery-overlay">
-                        <h4>Sertifikat CISDV</h4>
-                        <p>Data Visualization - Februari 2025</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Project Python">
-                    <div class="gallery-overlay">
-                        <h4>Analisis Data Python</h4>
-                        <p>Proyek Studi Independen</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Sertifikat AWS">
-                    <div class="gallery-overlay">
-                        <h4>Sertifikat AWS</h4>
-                        <p>Cloud Essentials - Mei 2024</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <p style="color: var(--gray); font-style: italic;">Catatan: Gambar di atas adalah ilustrasi. Anda dapat menggantinya dengan gambar sertifikat dan bukti proyek asli Anda.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
