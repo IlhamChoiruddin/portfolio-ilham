@@ -238,7 +238,7 @@
         
         .btn-outline {
             background: transparent;
-            border: 2px solid rgba(100, 116, 139, 0.5);
+            border: 2px solid rgba(31, 88, 169, 0.5);
             color: #cbd5e1;
             padding: 12px 30px;
             box-shadow: none;
@@ -302,7 +302,77 @@
             font-size: 0.9rem;
         }
 
-        
+
+        /* Tombol Download CV */
+        .btn-cv {
+            background-color: #8b5cf6; /* Warna ungu/violet */
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .btn-cv:hover {
+            background-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+
+        .btn-cv i {
+            font-size: 0.9rem;
+        }
+
+        /* Tombol Download Portfolio (warna merah) */
+        .btn-download {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
+        }
+
+        .btn-download i {
+            font-size: 0.9rem;
+        }
+
+        /* Style untuk group tombol */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Responsif untuk tombol */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn,
+            .hero-buttons .btn-download,
+            .hero-buttons .btn-cv {
+                width: 100%;
+                justify-content: center;
+            }
+        }
 
         /* Style untuk tombol yang sudah ada */
         .hero-buttons {
