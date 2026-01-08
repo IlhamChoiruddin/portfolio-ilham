@@ -549,54 +549,54 @@
             border-radius: 4px;
         }
 
-        /* Tambahkan CSS baru untuk bagian sertifikasi */
-.cert-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+                /* Tambahkan CSS baru untuk bagian sertifikasi */
+        .cert-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-.cert-btn {
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: var(--border-radius);
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-}
+        .cert-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
 
-.cert-btn:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-}
+        .cert-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
 
-.cert-btn i {
-    font-size: 0.8rem;
-}
+        .cert-btn i {
+            font-size: 0.8rem;
+        }
 
-/* Responsif untuk tombol */
-@media (max-width: 576px) {
-    .cert-footer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .cert-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
+        /* Responsif untuk tombol */
+        @media (max-width: 576px) {
+            .cert-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cert-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
         
         /* Contact Section */
         .contact-container {
