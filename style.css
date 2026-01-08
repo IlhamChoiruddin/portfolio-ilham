@@ -279,6 +279,51 @@
             border: 5px solid rgba(59, 130, 246, 0.2);
         }
         
+
+
+        /* Tombol Download */
+        .btn-download {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
+        }
+
+        .btn-download i {
+            font-size: 0.9rem;
+        }
+
+        
+
+        /* Style untuk tombol yang sudah ada */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Responsif untuk tombol */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn,
+            .hero-buttons .btn-download {
+                width: 100%;
+                justify-content: center;
+            }
+        }
         /* Section Styling */
         section {
             padding: 80px 0;
