@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </head>
 <body>
@@ -31,6 +32,7 @@
     </header>
 
     <!-- Hero Section -->
+ 
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -42,12 +44,15 @@
                         <a href="#projects" class="btn">Lihat Proyek</a>
                         <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
                         <a href="#certifications" class="btn btn-success">Sertifikasi</a>
+                        <!-- Tambahkan tombol download di sini -->
+                        <button class="btn btn-download" onclick="downloadPortfolioPDF()">
+                            <i class="fas fa-download"></i> Download CV (PDF)
+                        </button>
                     </div>
                 </div>
                 <div class="hero-image">
-                <img src="img\pprofile.jpg" alt="Muhammad Ilham Choiruddin">
+                    <img src="img\pprofile.jpg" alt="Muhammad Ilham Choiruddin">
                 </div>
-
             </div>
         </div>
     </section>
@@ -430,6 +435,228 @@
             });
         });
         
+        // Fungsi untuk mendownload portfolio sebagai PDF
+function downloadPortfolioPDF() {
+    // Element yang akan dijadikan PDF
+    const element = document.documentElement; // Atau gunakan bagian spesifik
+    
+    // Opsi konfigurasi html2pdf
+    const options = {
+        margin: [10, 10, 10, 10], // Margin: [top, right, bottom, left]
+        filename: 'Portfolio_Muhammad_Ilham_Choiruddin.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            logging: true,
+            backgroundColor: '#0f172a' // Warna background dark
+        },
+        jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait' 
+        },
+        pagebreak: { 
+            mode: ['avoid-all', 'css', 'legacy'] 
+        }
+    };
+    
+    // Tampilkan loading indicator
+    showLoading();
+    
+    // Generate PDF
+    html2pdf().set(options).from(element).save()
+        .then(() => {
+            hideLoading();
+            showSuccessMessage('Portfolio berhasil didownload!');
+        })
+        .catch((error) => {
+            hideLoading();
+            console.error('Error generating PDF:', error);
+            showErrorMessage('Gagal mendownload portfolio. Silakan coba lagi.');
+        });
+}
+
+// **ALTERNATIF 1: Download bagian spesifik saja (lebih bersih)**
+function downloadPortfolioPDFAlternative() {
+    // Buat elemen khusus untuk PDF (hanya bagian penting)
+    const pdfContainer = document.createElement('div');
+    pdfContainer.id = 'pdf-container';
+    pdfContainer.style.cssText = `
+        background-color: #0f172a;
+        color: #f8fafc;
+        padding: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    `;
+    
+    // Clone konten penting
+    pdfContainer.innerHTML = `
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: #3b82f6; margin-bottom: 10px;">Muhammad Ilham Choiruddin</h1>
+            <h2 style="color: #10b981;">Mahasiswa S1 Sistem Informasi | Data Analyst</h2>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <h3 style="color: #3b82f6; border-bottom: 2px solid #3b82f6; padding-bottom: 5px;">Profil Singkat</h3>
+            <p>Mahasiswa Sistem Informasi dengan IPK 3.85, berpengalaman dalam analisis data, manajemen proses, dan koordinasi tim. Terampil mengolah serta memvisualisasikan data menggunakan Microsoft Excel, Tableau, dan Python.</p>
+        </div>
+        
+        <!-- Tambahkan bagian-bagian penting lainnya -->
+        <!-- Anda bisa menambahkan bagian education, experience, skills, dll -->
+        
+        <div style="text-align: center; margin-top: 40px; color: #94a3b8; font-size: 12px;">
+            <p>Portfolio ini dihasilkan secara otomatis dari website portfolio Muhammad Ilham Choiruddin</p>
+            <p>${new Date().toLocaleDateString('id-ID', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })}</p>
+        </div>
+    `;
+    
+    // Generate PDF dari konten khusus
+    const options = {
+        margin: [15, 15, 15, 15],
+        filename: 'Portfolio_Ilham_Choiruddin.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+            scale: 2,
+            backgroundColor: '#0f172a'
+        },
+        jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait' 
+        }
+    };
+    
+    html2pdf().set(options).from(pdfContainer).save();
+}
+
+// **ALTERNATIF 2: Download semua section yang penting**
+function downloadPortfolioPDFComplete() {
+    // Kumpulkan semua section penting
+    const sectionsToInclude = ['home', 'about', 'skills', 'experience', 'education', 'certifications', 'projects'];
+    let pdfContent = '<div style="background-color: #0f172a; color: #f8fafc; padding: 20px; font-family: Arial, sans-serif;">';
+    
+    sectionsToInclude.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            // Clone section tanpa tombol dan elemen interaktif
+            const clone = section.cloneNode(true);
+            
+            // Hapus tombol-tombol
+            const buttons = clone.querySelectorAll('button, .btn, .hero-buttons');
+            buttons.forEach(btn => btn.remove());
+            
+            pdfContent += clone.innerHTML;
+            pdfContent += '<div style="page-break-after: always;"></div>'; // Page break
+        }
+    });
+    
+    pdfContent += '</div>';
+    
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = pdfContent;
+    
+    const options = {
+        margin: [15, 15, 15, 15],
+        filename: 'Portfolio_Lengkap_Ilham_Choiruddin.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+            scale: 2,
+            backgroundColor: '#0f172a'
+        },
+        jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait' 
+        }
+    };
+    
+    html2pdf().set(options).from(tempDiv).save();
+}
+
+// **Fungsi Bantuan (Helpers)**
+function showLoading() {
+    // Buat atau tampilkan loading indicator
+    let loading = document.getElementById('pdf-loading');
+    if (!loading) {
+        loading = document.createElement('div');
+        loading.id = 'pdf-loading';
+        loading.innerHTML = `
+            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                       background: rgba(0,0,0,0.7); z-index: 9999; display: flex; 
+                       align-items: center; justify-content: center; flex-direction: column;">
+                <div class="spinner" style="border: 5px solid #f3f3f3; border-top: 5px solid #3b82f6; 
+                                           border-radius: 50%; width: 50px; height: 50px; 
+                                           animation: spin 1s linear infinite;"></div>
+                <p style="color: white; margin-top: 20px; font-size: 18px;">Membuat PDF...</p>
+            </div>
+        `;
+        document.body.appendChild(loading);
+    }
+    loading.style.display = 'flex';
+}
+
+function hideLoading() {
+    const loading = document.getElementById('pdf-loading');
+    if (loading) {
+        loading.style.display = 'none';
+    }
+}
+
+function showSuccessMessage(message) {
+    // Tampilkan notifikasi sukses
+    const toast = document.createElement('div');
+    toast.innerHTML = `
+        <div style="position: fixed; top: 20px; right: 20px; background: #10b981; 
+                   color: white; padding: 15px 25px; border-radius: 8px; 
+                   z-index: 10000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+                   animation: slideIn 0.3s ease;">
+            <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+            ${message}
+        </div>
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+function showErrorMessage(message) {
+    const toast = document.createElement('div');
+    toast.innerHTML = `
+        <div style="position: fixed; top: 20px; right: 20px; background: #ef4444; 
+                   color: white; padding: 15px 25px; border-radius: 8px; 
+                   z-index: 10000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+                   animation: slideIn 0.3s ease;">
+            <i class="fas fa-exclamation-circle" style="margin-right: 10px;"></i>
+            ${message}
+        </div>
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+// Tambahkan CSS untuk animasi
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
+
         // Tambahkan fungsi ini di file JavaScript Anda
 function viewCertificate(certId) {
     // Buat mapping URL sertifikat sesuai dengan ID
