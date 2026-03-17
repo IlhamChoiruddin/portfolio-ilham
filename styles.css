@@ -84,8 +84,13 @@ h1,h2,h3,h4,h5 { font-family: var(--font-heading); line-height: 1.2; }
 }
 
 /* Reveal Animations */
-.reveal, .reveal-delay {
+.reveal {
     opacity: 1;
+}
+.reveal-delay {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 .reveal-delay { transition-delay: 0.15s; }
 .reveal.visible, .reveal-delay.visible { opacity: 1; transform: translateY(0); }
