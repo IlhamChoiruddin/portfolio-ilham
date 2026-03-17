@@ -1,6 +1,3 @@
-if (!menuBtn) console.warn("menuBtn tidak ditemukan");
-if (!navLinks) console.warn("navLinks tidak ditemukan");
-
 document.addEventListener('DOMContentLoaded', () => {
     const navbar   = document.getElementById('navbar');
     const menuBtn  = document.getElementById('menuBtn');
