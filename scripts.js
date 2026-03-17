@@ -1,6 +1,3 @@
-if (!menuBtn) console.warn("menuBtn tidak ditemukan");
-if (!navLinks) console.warn("navLinks tidak ditemukan");
-
 document.addEventListener('DOMContentLoaded', () => {
     const navbar   = document.getElementById('navbar');
     const menuBtn  = document.getElementById('menuBtn');
@@ -17,41 +14,30 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll();
 
     // ── 2. Mobile Menu ───────────────────────────────────────────────────────
-// ── 2. Mobile Menu (SAFE) ─────────────────────────────────────────
-if (menuBtn && navLinks) {
     menuBtn.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('open');
         const spans  = menuBtn.querySelectorAll('span');
-
-        if (spans.length === 3) {
-            if (isOpen) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity   = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = '';
-                spans[1].style.opacity   = '';
-                spans[2].style.transform = '';
-            }
+        if (isOpen) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity   = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = '';
+            spans[1].style.opacity   = '';
+            spans[2].style.transform = '';
         }
     });
-}
 
     // Close on nav link click
-allNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks) navLinks.classList.remove('open');
-
-        if (menuBtn) {
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
             const spans = menuBtn.querySelectorAll('span');
-            if (spans.length === 3) {
-                spans[0].style.transform = '';
-                spans[1].style.opacity   = '';
-                spans[2].style.transform = '';
-            }
-        }
+            spans[0].style.transform = '';
+            spans[1].style.opacity   = '';
+            spans[2].style.transform = '';
+        });
     });
-});
 
     // ── 3. Active Nav Highlight ───────────────────────────────────────────────
     function highlightActiveLink() {
@@ -70,7 +56,6 @@ allNavLinks.forEach(link => {
     }
 
     // ── 4. Scroll Reveal ─────────────────────────────────────────────────────
-if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -83,13 +68,6 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.reveal, .reveal-delay').forEach(el => {
         revealObserver.observe(el);
     });
-
-} else {
-    // fallback kalau tidak support
-    document.querySelectorAll('.reveal, .reveal-delay').forEach(el => {
-        el.classList.add('visible');
-    });
-}
 
     // ── 5. Stagger Cert Cards ─────────────────────────────────────────────────
     document.querySelectorAll('.cert-card').forEach((card, i) => {
