@@ -344,7 +344,7 @@
                         </div>
                         <h3 class="project-title">Analisis Penjualan Retail</h3>
                         <p class="project-desc">Menganalisis data penjualan selama 2 tahun untuk mengidentifikasi tren musiman dan memberikan rekomendasi strategi promosi menggunakan Python dan Pandas.</p>
-                        <a href="#" class="project-link">Detail Proyek <span>→</span></a>
+                        <button class="project-link open-modal-btn" data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" style="background:none; border:none; padding:0; cursor:pointer; font-family:inherit;">Detail Proyek <span>→</span></button>
                     </div>
                 </div>
 
@@ -362,7 +362,7 @@
                         </div>
                         <h3 class="project-title">Executive Dashboard KPI</h3>
                         <p class="project-desc">Merancang dashboard interaktif di Tableau untuk memantau Key Performance Indicators (KPI) perusahaan secara real-time bagi para eksekutif.</p>
-                        <a href="#" class="project-link">Detail Proyek <span>→</span></a>
+                        <button class="project-link open-modal-btn" data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" style="background:none; border:none; padding:0; cursor:pointer; font-family:inherit;">Detail Proyek <span>→</span></button>
                     </div>
                 </div>
 
@@ -380,7 +380,7 @@
                         </div>
                         <h3 class="project-title">Prediksi Churn Pelanggan</h3>
                         <p class="project-desc">Membangun model machine learning untuk memprediksi probabilitas pelanggan churn dengan akurasi 85%, memungkinkan strategi retensi yang proaktif.</p>
-                        <a href="#" class="project-link">Detail Proyek <span>→</span></a>
+                        <button class="project-link open-modal-btn" data-img="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1000" style="background:none; border:none; padding:0; cursor:pointer; font-family:inherit;">Detail Proyek <span>→</span></button>
                     </div>
                 </div>
             </div>
@@ -546,6 +546,20 @@
     </footer>
 
     <script src="scripts.js"></script>
+
+    <!-- ========== PROJECT MODAL ========== -->
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-image-container">
+                <img src="" alt="Project Detail" id="modalImage" class="modal-image">
+                <div id="modalImagePlaceholder" class="modal-image-fallback">
+                    <span>Memuat Preview...</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
