@@ -1097,3 +1097,14 @@ h1,h2,h3,h4,h5 { font-family: var(--font-heading); line-height: 1.2; }
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+
+.modal-content.pdf-mode {
+    width: 90vw;
+    height: 90vh;
+    max-width: 1200px;
+}
+
+.modal-pdf.loaded {
+    display: block;
+}

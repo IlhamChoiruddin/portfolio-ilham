@@ -97,56 +97,87 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.info-chip').forEach((chip, i) => {
         chip.style.transitionDelay = `${0.15 + i * 0.08}s`;
     });
-    // ── 7. Project Modal ──────────────────────────────────────────────────────
+    // ── 7. Project & PDF Modal ──────────────────────────────────────────────
     const modal = document.getElementById('projectModal');
     const modalOverlay = document.getElementById('modalOverlay');
     const modalClose = document.getElementById('modalClose');
     const modalImage = document.getElementById('modalImage');
+    const modalPdf = document.getElementById('modalPdf');
+    const modalContent = document.querySelector('.modal-content');
     const modalImagePlaceholder = document.getElementById('modalImagePlaceholder');
     const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const openPdfBtns = document.querySelectorAll('.open-pdf-btn');
 
-    if (modal && modalOverlay && modalClose && modalImage && openModalBtns.length > 0) {
+    if (modal && modalOverlay && modalClose) {
         const closeModal = () => {
             modal.classList.remove('active');
             setTimeout(() => {
-                modalImage.src = '';
-                modalImage.classList.remove('loaded');
-                modalImagePlaceholder.style.display = 'flex';
+                if (modalImage) {
+                    modalImage.src = '';
+                    modalImage.classList.remove('loaded');
+                }
+                if (modalPdf) {
+                    modalPdf.src = '';
+                    setTimeout(() => { modalPdf.classList.remove('loaded'); }, 10);
+                }
+                if (modalContent) modalContent.classList.remove('pdf-mode');
+                if (modalImagePlaceholder) modalImagePlaceholder.style.display = 'flex';
             }, 300); // Wait for transition
         };
 
-        openModalBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const imgSrc = btn.getAttribute('data-img');
-                
-                modal.classList.add('active');
-                
-                // Show placeholder while loading or if it fails
-                modalImagePlaceholder.style.display = 'flex';
-                modalImage.classList.remove('loaded');
-                
-                if (imgSrc) {
-                    modalImage.src = imgSrc;
-                    modalImage.onload = () => {
-                        modalImagePlaceholder.style.display = 'none';
-                        modalImage.classList.add('loaded');
-                    };
-                    modalImage.onerror = () => {
-                        modalImagePlaceholder.style.display = 'flex';
-                        modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
-                        modalImage.classList.remove('loaded');
-                    };
-                } else {
-                    modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
-                }
+        if (openModalBtns.length > 0) {
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const imgSrc = btn.getAttribute('data-img');
+                    
+                    if (modalContent) modalContent.classList.remove('pdf-mode');
+                    modal.classList.add('active');
+                    
+                    if (modalPdf) modalPdf.classList.remove('loaded');
+                    if (modalImagePlaceholder) modalImagePlaceholder.style.display = 'flex';
+                    if (modalImage) modalImage.classList.remove('loaded');
+                    
+                    if (imgSrc && modalImage) {
+                        modalImage.src = imgSrc;
+                        modalImage.onload = () => {
+                            if (modalImagePlaceholder) modalImagePlaceholder.style.display = 'none';
+                            modalImage.classList.add('loaded');
+                        };
+                        modalImage.onerror = () => {
+                            if (modalImagePlaceholder) modalImagePlaceholder.style.display = 'flex';
+                            if (modalImagePlaceholder) modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
+                            modalImage.classList.remove('loaded');
+                        };
+                    } else {
+                        if (modalImagePlaceholder) modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
+                    }
+                });
             });
-        });
+        }
+
+        if (openPdfBtns.length > 0) {
+            openPdfBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pdfSrc = btn.getAttribute('data-pdf');
+                    
+                    if (modalContent) modalContent.classList.add('pdf-mode');
+                    modal.classList.add('active');
+                    
+                    if (modalImage) modalImage.classList.remove('loaded');
+                    if (modalImagePlaceholder) modalImagePlaceholder.style.display = 'none';
+                    if (modalPdf && pdfSrc) {
+                        modalPdf.src = pdfSrc;
+                        modalPdf.classList.add('loaded');
+                    }
+                });
+            });
+        }
 
         modalClose.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', closeModal);
         
-        // Close on ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();

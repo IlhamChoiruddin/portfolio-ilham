@@ -403,8 +403,7 @@
                     <p class="cert-issuer">Data Academy – PT Cendekia Data Andalan</p>
                     <p class="cert-desc">Meraih penghargaan sebagai peserta terbaik berdasarkan kinerja akademik,
                         keaktifan, dan kualitas analisis data.</p>
-                    <a href="certificates/best-participant.pdf" target="_blank" rel="noopener" class="cert-link">📄
-                        Lihat Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/best-participant.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -416,8 +415,7 @@
                     <p class="cert-issuer">BNSP (Badan Nasional Sertifikasi Profesi)</p>
                     <p class="cert-desc">Sertifikasi kompetensi nasional dalam pengolahan data, analisis statistik,
                         penggunaan tools analitik, serta interpretasi hasil analisis.</p>
-                    <a href="certificates/BNSP.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/BNSP.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -429,8 +427,7 @@
                     <p class="cert-issuer">PASAS</p>
                     <p class="cert-desc">Tersertifikasi dalam perancangan visualisasi data, mencakup visual analytics,
                         storytelling data, dan penyajian insight.</p>
-                    <a href="certificates/pasas.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/pasas.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -442,8 +439,7 @@
                     <p class="cert-issuer">RevoU</p>
                     <p class="cert-desc">Pelatihan intensif 2 minggu mengenai dasar analisis data, digital business, dan
                         penerapan teknologi dalam pengambilan keputusan.</p>
-                    <a href="certificates/revou.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/revou.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -455,8 +451,7 @@
                     <p class="cert-issuer">Amazon Web Services (AWS)</p>
                     <p class="cert-desc">Memahami konsep dasar komputasi awan, arsitektur cloud, serta penerapan layanan
                         AWS.</p>
-                    <a href="certificates/aws.pdf" target="_blank" rel="noopener" class="cert-link">📄
-                        Lihat Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/aws.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -468,8 +463,7 @@
                     <p class="cert-issuer">Alibaba Cloud</p>
                     <p class="cert-desc">Konsep Big Data, ekosistem big data, pemrosesan data skala besar, dan
                         pemanfaatan layanan cloud.</p>
-                    <a href="certificates/alibaba.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/alibaba.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -481,8 +475,7 @@
                     <p class="cert-issuer">Universitas Negeri Surabaya</p>
                     <p class="cert-desc">Membantu perkuliahan basis data, pendampingan praktikum SQL, dan asistensi
                         mahasiswa dalam query dan perancangan basis data.</p>
-                    <a href="certificates/asdos.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/asdos.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
                 <div class="cert-card reveal">
@@ -494,8 +487,7 @@
                     <p class="cert-issuer">DQLab</p>
                     <p class="cert-desc">Kursus daring Python untuk data analysis, SQL, statistika dasar, dan pengolahan
                         data disertai studi kasus.</p>
-                    <a href="certificates/dqlab.pdf" target="_blank" rel="noopener" class="cert-link">📄 Lihat
-                        Sertifikat</a>
+                    <button class="cert-link open-pdf-btn" data-pdf="certificates/dqlab.pdf" style="cursor:pointer; font-family:inherit; text-align:left;">📄 Lihat Sertifikat</button>
                 </div>
 
             </div>
@@ -554,6 +546,7 @@
             <button class="modal-close" id="modalClose">&times;</button>
             <div class="modal-image-container">
                 <img src="" alt="Project Detail" id="modalImage" class="modal-image">
+                <iframe src="" id="modalPdf" class="modal-pdf" style="display:none; width:100%; height:100%; min-height:80vh; border:none;" title="Sertifikat"></iframe>
                 <div id="modalImagePlaceholder" class="modal-image-fallback">
                     <span>Memuat Preview...</span>
                 </div>
