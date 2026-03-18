@@ -52,9 +52,8 @@ if '.modal-content.pdf-mode' not in css:
 with open('scripts.js', 'r', encoding='utf-8') as f:
     js = f.read()
 
-js_start = js.find('    // ── 7. Project Modal')
-if js_start != -1:
-    js_top = js[:js_start]
+if '    // ── 7. Project Modal' in js:
+    js_top = js.split('    // ── 7. Project Modal')[0]
     
     new_js_end = '''    // ── 7. Project & PDF Modal ──────────────────────────────────────────────
     const modal = document.getElementById('projectModal');
