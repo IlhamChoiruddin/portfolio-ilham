@@ -97,4 +97,60 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.info-chip').forEach((chip, i) => {
         chip.style.transitionDelay = `${0.15 + i * 0.08}s`;
     });
+    // ── 7. Project Modal ──────────────────────────────────────────────────────
+    const modal = document.getElementById('projectModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const modalImage = document.getElementById('modalImage');
+    const modalImagePlaceholder = document.getElementById('modalImagePlaceholder');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+    if (modal && modalOverlay && modalClose && modalImage && openModalBtns.length > 0) {
+        const closeModal = () => {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modalImage.src = '';
+                modalImage.classList.remove('loaded');
+                modalImagePlaceholder.style.display = 'flex';
+            }, 300); // Wait for transition
+        };
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = btn.getAttribute('data-img');
+                
+                modal.classList.add('active');
+                
+                // Show placeholder while loading or if it fails
+                modalImagePlaceholder.style.display = 'flex';
+                modalImage.classList.remove('loaded');
+                
+                if (imgSrc) {
+                    modalImage.src = imgSrc;
+                    modalImage.onload = () => {
+                        modalImagePlaceholder.style.display = 'none';
+                        modalImage.classList.add('loaded');
+                    };
+                    modalImage.onerror = () => {
+                        modalImagePlaceholder.style.display = 'flex';
+                        modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
+                        modalImage.classList.remove('loaded');
+                    };
+                } else {
+                    modalImagePlaceholder.innerHTML = '<span>Belum Ada Gambar Preview</span>';
+                }
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
 });
